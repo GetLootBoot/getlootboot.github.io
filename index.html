@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LootBoot</title>
+<style>
+/* LootBoot guides: mobile-first article layout, system fonts only (fast with and without VPN) */
+:root{
+  --bg:#fbf8f6; --surface:#ffffff; --ink:#1b1714; --muted:#6b625c; --line:#ebe3dd;
+  --brand1:#ff8a00; --brand2:#e8285a; --accent:#d9481f; --accent-soft:#fff0e8;
+  --ok:#13804f; --ok-soft:#e5f5ec; --warn:#9a5b00; --warn-soft:#fff4dc; --bad:#b3261e; --bad-soft:#fde8e6;
+  --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Consolas,"Roboto Mono",monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#141110; --surface:#1d1917; --ink:#f1ebe7; --muted:#a99e97; --line:#2e2724;
+  --accent:#ff8a5c; --accent-soft:#33201a; --ok:#5fd39a; --ok-soft:#14301f; --warn:#f2c46b; --warn-soft:#352914; --bad:#ff8a80; --bad-soft:#3a1c1a; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.top{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;padding:14px 16px}
+.top .in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px}
+.logo{width:34px;height:34px;border-radius:50%;background:#fff;color:#e8442f;font-weight:900;display:grid;place-items:center;font-size:14px;letter-spacing:-.5px;flex:none}
+.top b{font-size:16px;letter-spacing:.2px}
+.top span{opacity:.85;font-size:13px}
+main{max-width:720px;margin:0 auto;padding:24px 16px 56px}
+h1{font-size:clamp(26px,7vw,36px);line-height:1.15;margin:0 0 8px;text-wrap:balance;letter-spacing:-.4px}
+.sub{color:var(--muted);margin:0 0 20px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.chip{font-size:13px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+h2{font-size:22px;line-height:1.25;margin:36px 0 12px;text-wrap:balance;display:flex;gap:10px;align-items:baseline}
+h2 .n{flex:none;font-family:var(--mono);font-size:14px;color:#fff;background:var(--accent);border-radius:8px;padding:2px 8px;position:relative;top:-2px}
+h3{font-size:18px;margin:22px 0 8px}
+p{margin:0 0 12px}
+ol,ul{padding-left:22px;margin:0 0 14px}
+li{margin:6px 0}
+b,strong{font-weight:700}
+code,kbd{font-family:var(--mono);font-size:.9em;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1px 6px;white-space:nowrap}
+.path{font-family:var(--mono);font-size:.88em;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:block;overflow-x:auto;white-space:nowrap;margin:6px 0 12px}
+.box{border-radius:12px;padding:12px 14px;margin:14px 0;border:1px solid var(--line);background:var(--surface)}
+.box.tip{background:var(--ok-soft);border-color:transparent}
+.box.warn{background:var(--warn-soft);border-color:transparent}
+.box.bad{background:var(--bad-soft);border-color:transparent}
+.box p:last-child,.box ul:last-child{margin-bottom:0}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:12px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:480px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:0 0 8px}
+.toc b{display:block;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.toc ol{margin:0}
+.toc a{color:var(--ink);text-decoration:none}
+.toc a:hover{color:var(--accent)}
+a{color:var(--accent)}
+footer{max-width:720px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+footer .card{border-top:1px solid var(--line);padding-top:18px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><div class="logo">LB</div><div><b>LootBoot</b><br><span>гайды и цифровые товары</span></div></div></header>
+<main>
+<h1>LootBoot</h1>
+<p class="sub">Понятные гайды по играм, Telegram и настройке ПК. Гайды открываются по ссылке, которую вы получаете после покупки на Playerok.</p>
+<div class="box"><p>Получили ссылку на гайд? Просто откройте её. Ссылка не открывается — напишите в чат заказа, пришлём заново.</p></div>
+</main>
+<footer><div class="card"><b>LootBoot</b> · гайды и цифровые товары</div></footer>
+</body>
+</html>
