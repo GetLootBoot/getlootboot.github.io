@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Больше FPS без программ · LootBoot</title>
+<style>
+/* LootBoot guides: mobile-first article layout, system fonts only (fast with and without VPN) */
+:root{
+  --bg:#fbf8f6; --surface:#ffffff; --ink:#1b1714; --muted:#6b625c; --line:#ebe3dd;
+  --brand1:#ff8a00; --brand2:#e8285a; --accent:#d9481f; --accent-soft:#fff0e8;
+  --ok:#13804f; --ok-soft:#e5f5ec; --warn:#9a5b00; --warn-soft:#fff4dc; --bad:#b3261e; --bad-soft:#fde8e6;
+  --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Consolas,"Roboto Mono",monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#141110; --surface:#1d1917; --ink:#f1ebe7; --muted:#a99e97; --line:#2e2724;
+  --accent:#ff8a5c; --accent-soft:#33201a; --ok:#5fd39a; --ok-soft:#14301f; --warn:#f2c46b; --warn-soft:#352914; --bad:#ff8a80; --bad-soft:#3a1c1a; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+.top{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#fff;padding:14px 16px}
+.top .in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px}
+.logo{width:34px;height:34px;border-radius:50%;background:#fff;color:#e8442f;font-weight:900;display:grid;place-items:center;font-size:14px;letter-spacing:-.5px;flex:none}
+.top b{font-size:16px;letter-spacing:.2px}
+.top span{opacity:.85;font-size:13px}
+main{max-width:720px;margin:0 auto;padding:24px 16px 56px}
+h1{font-size:clamp(26px,7vw,36px);line-height:1.15;margin:0 0 8px;text-wrap:balance;letter-spacing:-.4px}
+.sub{color:var(--muted);margin:0 0 20px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.chip{font-size:13px;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+h2{font-size:22px;line-height:1.25;margin:36px 0 12px;text-wrap:balance;display:flex;gap:10px;align-items:baseline}
+h2 .n{flex:none;font-family:var(--mono);font-size:14px;color:#fff;background:var(--accent);border-radius:8px;padding:2px 8px;position:relative;top:-2px}
+h3{font-size:18px;margin:22px 0 8px}
+p{margin:0 0 12px}
+ol,ul{padding-left:22px;margin:0 0 14px}
+li{margin:6px 0}
+b,strong{font-weight:700}
+code,kbd{font-family:var(--mono);font-size:.9em;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1px 6px;white-space:nowrap}
+.path{font-family:var(--mono);font-size:.88em;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:block;overflow-x:auto;white-space:nowrap;margin:6px 0 12px}
+.box{border-radius:12px;padding:12px 14px;margin:14px 0;border:1px solid var(--line);background:var(--surface)}
+.box.tip{background:var(--ok-soft);border-color:transparent}
+.box.warn{background:var(--warn-soft);border-color:transparent}
+.box.bad{background:var(--bad-soft);border-color:transparent}
+.box p:last-child,.box ul:last-child{margin-bottom:0}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:12px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:480px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:0 0 8px}
+.toc b{display:block;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.toc ol{margin:0}
+.toc a{color:var(--ink);text-decoration:none}
+.toc a:hover{color:var(--accent)}
+a{color:var(--accent)}
+footer{max-width:720px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:14px}
+footer .card{border-top:1px solid var(--line);padding-top:18px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<header class="top"><div class="in"><div class="logo">LB</div><div><b>LootBoot</b><br><span>гайды и цифровые товары</span></div></div></header>
+<main>
+<h1>Больше FPS в играх без сторонних программ</h1>
+<p class="sub">Пошаговая настройка Windows 10/11, драйвера и самой игры. Без читов, «оптимизаторов» и правки реестра. Всё можно вернуть обратно.</p>
+<div class="meta"><span class="chip">⏱ 20–30 минут</span><span class="chip">NVIDIA · AMD · Intel</span><span class="chip">ПК и ноутбуки</span></div>
+
+<nav class="toc"><b>Содержание</b><ol>
+<li><a href="#s1">Драйвер видеокарты</a></li>
+<li><a href="#s2">Режим питания</a></li>
+<li><a href="#s3">Игровые настройки Windows</a></li>
+<li><a href="#s4">Частота монитора</a></li>
+<li><a href="#s5">Лишнее в фоне</a></li>
+<li><a href="#s6">Панель видеокарты</a></li>
+<li><a href="#s7">Настройки в игре</a></li>
+<li><a href="#s8">Проверка железа</a></li>
+</ol></nav>
+
+<div class="box tip"><p><b>Как понять, что стало лучше.</b> До начала зайдите в игру и запомните FPS в одном и том же месте. В Steam счётчик включается так:</p>
+<span class="path">Steam → Настройки → В игре → Счётчик кадров</span>
+<p>Повторяйте замер после каждого шага.</p></div>
+
+<h2 id="s1"><span class="n">1</span>Драйвер видеокарты</h2>
+<p>Самый большой прирост. Старый драйвер — частая причина просадок в новых играх, свежий нередко даёт +5–20% FPS.</p>
+<ol>
+<li>Узнайте модель видеокарты: нажмите <kbd>Win + R</kbd>, введите <code>dxdiag</code>, откройте вкладку «Экран».</li>
+<li>Скачайте драйвер <b>только с официального сайта</b>:
+<ul><li>NVIDIA — приложение <b>NVIDIA App</b> или nvidia.com → Drivers;</li>
+<li>AMD — <b>AMD Software: Adrenalin</b> с amd.com;</li>
+<li>Intel — <b>Intel Driver &amp; Support Assistant</b> с intel.com.</li></ul></li>
+<li>При установке выберите «Чистая установка» (Clean install), если такой пункт есть.</li>
+<li>Перезагрузите компьютер.</li>
+</ol>
+
+<h2 id="s2"><span class="n">2</span>Режим питания</h2>
+<div class="box warn"><p><b>Ноутбук — только на зарядке.</b> От батареи процессор и видеокарта специально работают медленнее.</p></div>
+<span class="path">Параметры → Система → Питание и батарея → Режим питания → Максимальная производительность</span>
+<p>У многих ноутбуков есть своя утилита: Armoury Crate, Lenovo Vantage, MSI Center, OMEN Gaming Hub. Включите в ней режим <b>Performance / Турбо</b>.</p>
+
+<h2 id="s3"><span class="n">3</span>Игровые настройки Windows</h2>
+<ol>
+<li><span class="path">Параметры → Игры → Игровой режим → Вкл.</span></li>
+<li><span class="path">Параметры → Система → Дисплей → Графика</span>
+<ul><li><b>Планирование GPU с аппаратным ускорением</b> → Вкл. (нужна перезагрузка);</li>
+<li><b>Оптимизации для оконных игр</b> → Вкл.;</li>
+<li>ниже нажмите на свою игру → <b>«Высокая производительность»</b>. На ноутбуке так игра пойдёт на мощной видеокарте, а не на встроенной.</li></ul></li>
+<li><span class="path">Параметры → Игры → Записи</span> выключите <b>«Записывать то, что произошло»</b>: фоновая запись съедает ресурсы.</li>
+</ol>
+
+<h2 id="s4"><span class="n">4</span>Частота обновления монитора</h2>
+<p>Если монитор на 144/165/240 Гц, а в Windows стоит 60 Гц, лишних кадров вы не увидите.</p>
+<span class="path">Параметры → Система → Дисплей → Расширенные параметры дисплея → Частота обновления</span>
+<p>Выберите <b>максимальную</b>. Проверьте кабель: нужен <b>DisplayPort</b> или HDMI 2.0 и новее, старый HDMI может ограничивать до 60 Гц.</p>
+
+<h2 id="s5"><span class="n">5</span>Убираем лишнее из фона</h2>
+<ol>
+<li>Нажмите <kbd>Ctrl + Shift + Esc</kbd> → вкладка <b>«Автозагрузка»</b> → отключите всё, что не нужно сразу после включения: лаунчеры, мессенджеры, «помощники». Антивирус и драйвер звука не трогайте.</li>
+<li>Перед игрой закройте браузер с десятками вкладок и программы записи экрана.</li>
+<li>В Steam, Epic и Battle.net отключите <b>оверлей</b> там, где он не нужен, и запретите загрузку обновлений во время игры.</li>
+</ol>
+
+<h2 id="s6"><span class="n">6</span>Панель видеокарты</h2>
+<h3>NVIDIA</h3>
+<span class="path">NVIDIA App (или Панель управления NVIDIA) → Управление параметрами 3D</span>
+<ul>
+<li>Режим управления электропитанием → <b>«Предпочтителен режим максимальной производительности»</b>;</li>
+<li>Режим низкой задержки → <b>Вкл.</b> Если в игре есть <b>NVIDIA Reflex</b>, включите его там, он работает лучше;</li>
+<li>Вертикальная синхронизация → <b>Выкл.</b> Если монитор с G-Sync, G-Sync оставьте включённым.</li>
+</ul>
+<h3>AMD</h3>
+<span class="path">AMD Software: Adrenalin → Игры → Графика</span>
+<ul>
+<li><b>Radeon Anti-Lag</b> → Вкл.;</li>
+<li><b>Radeon Chill</b> → Выкл. (он ограничивает FPS);</li>
+<li>Вертикальная синхронизация → «Выкл., если не указано приложением».</li>
+</ul>
+
+<h2 id="s7"><span class="n">7</span>Настройки в самой игре</h2>
+<p>Порядок, который даёт больше всего FPS при наименьшей потере картинки:</p>
+<div class="tbl"><table>
+<thead><tr><th>Настройка</th><th>Что поставить</th><th>Прирост</th></tr></thead>
+<tbody>
+<tr><td>Масштабирование DLSS / FSR / XeSS</td><td>«Качество» или «Баланс»</td><td>очень большой</td></tr>
+<tr><td>Тени</td><td>Средние или низкие</td><td>большой</td></tr>
+<tr><td>Объёмный туман, облака, отражения</td><td>Низкие или выкл.</td><td>большой</td></tr>
+<tr><td>Сглаживание</td><td>Лёгкое (FXAA/TAA) или через DLSS</td><td>средний</td></tr>
+<tr><td>Дальность прорисовки</td><td>Средняя</td><td>средний</td></tr>
+<tr><td>Текстуры</td><td>По видеопамяти: 4 ГБ — средние, 8 ГБ+ — высокие</td><td>почти нет, если памяти хватает</td></tr>
+<tr><td>Размытие в движении, зернистость, хроматическая аберрация</td><td>Выкл.</td><td>небольшой, но картинка чище</td></tr>
+</tbody></table></div>
+<p><b>Режим экрана:</b> попробуйте «Полноэкранный» и «Окно без рамки». В разных играх быстрее разное.</p>
+
+<h2 id="s8"><span class="n">8</span>Проверка железа за 5 минут</h2>
+<ul>
+<li><b>Температура.</b> Посмотрите в оверлее NVIDIA/AMD или в бесплатной программе HWiNFO. Выше 90 °C компьютер сбрасывает частоты — нужна чистка от пыли.</li>
+<li><b>Оперативная память.</b> Диспетчер задач → Производительность → Память. Если занято почти всё, игре не хватает памяти, закройте фоновые программы.</li>
+<li><b>Одна планка памяти?</b> Вторая такая же (двухканальный режим) может дать +10–30% FPS в играх, которые нагружают процессор.</li>
+<li><b>Ноутбук на кровати или коленях</b> перегревается. Поставьте его на стол или подставку.</li>
+</ul>
+
+<h2>Если стало хуже</h2>
+<ul>
+<li>Режим питания → «Сбалансированный».</li>
+<li>Планирование GPU → Выкл. и перезагрузка.</li>
+<li>В панели NVIDIA/AMD → «Восстановить настройки по умолчанию».</li>
+</ul>
+<div class="box bad"><p><b>Чего не делать</b></p><ul>
+<li>Не ставить «ускорители» и «чистильщики» с непонятных сайтов: часто это реклама или вирусы.</li>
+<li>Не отключать Защитник Windows и обновления безопасности ради пары кадров.</li>
+<li>Не скачивать «FPS-конфиги» в виде .exe-файлов.</li></ul></div>
+</main>
+<footer><div class="card">Остались вопросы по вашей сборке — напишите в чат заказа на Playerok, подскажу.<br><b>LootBoot</b> · гайды и цифровые товары</div></footer>
+</body>
+</html>
